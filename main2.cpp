@@ -44,7 +44,7 @@ class Inventory {
 public:
     void addItem(const std::string& item);
     void removeItem(const std::string& item);
-    void hasItem(const std::string& item);
+    bool hasItem(const std::string& item);
     void listItems() const;
     const std::vector<std::string>& getItems() const {
         return items;
@@ -89,7 +89,9 @@ public:
     void interact(const std::string& action);
 
     // Function ro repeat room description to player
-    void look() const;
+    void look() const {
+    std::cout << currentRoom->description;
+    }
 
     // Function to show inventory contents to player
     void takeItem(const std::string& item);
@@ -145,6 +147,7 @@ void Player::move(const std::string& direction) {
     } else {
         std::cout << "I can't go that way.\n";
     }
+}
 void Player::takeItem(const std::string& item) {
     inventory.addItem(item);
 }
@@ -156,7 +159,6 @@ void Player::dropItem(const std::string& item) {
 void Player::showInventory() const {
     inventory.listItems();
 }
-};
 
 //---------------------------------------------------------
 // Command handler
@@ -174,14 +176,17 @@ void processCommand(Player& player, const std::string& input) {
         for (const auto& item : player.getInventoryItems()) {
             std::cout << "- " << item << "\n";
         }
+   // }
     } else if (input == "quit") {
         std::cout << "Thanks for Playing!\n";
         exit(0);
-    } else if (input == "north" || input == "south" || input == "east" || input == "west" || input == "down" || input == "up") {
+    } else if (input == "north" || input == "south" || input == "east" || input == "west" || input == "down" ||
+         input == "up") {
         player.move(input);
     } else {
         std::cout << "I don't understand that command.\n";
-};
+    }
+}
 
 //---------------------------------------------------------
 // Main game setup
