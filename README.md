@@ -19,4 +19,7 @@ searching for the line number of an error
 if you have any questions feel free to join my personal discord channel and ask about anything
 https://discord.gg/nXtrFRMs
 
-Updated Nov 15th to connect all rooms inside the mansion using a placeholder bathroom off of the north side of westWingHallExt
+Updated Nov 15th, 2025 to connect all rooms inside the mansion using a placeholder bathroom off of the north side of westWingHallExt
+
+
+Updated Nov 19th, 2025 to show off how I split my game into headers and their respective cpp files
